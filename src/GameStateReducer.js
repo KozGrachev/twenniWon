@@ -10,8 +10,6 @@ export function reducer (state, action) {
       return { ...state, playerScore: getHandTotal(state.playerHand) };
     case 'count-dealer':
       return { ...state, dealerScore: getHandTotal(state.dealerHand) };
-    // case 'reset-hands':
-    //   return { ...state, playerHand: [], dealerHand: [] };
     case 'set-end-of-round':
       return { ...state, playerAction: null, endOfRound: action.payload };
     case 'take-turn':
