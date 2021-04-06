@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import * as api from './Api-service';
-import './App.css';
+import './css/App.css';
 import CardHand from './components/CardHand';
 import useGameState from './useGameState'
 
 
 function App () {
 
-  const [deckId, setDeckId] = useState('ghctraahm14k');
+  const deckId = 'ghctraahm14k';
   const [gameState, dispatch] = useGameState();
 
   useEffect(() => {
@@ -56,15 +56,15 @@ function App () {
 
   return (
     <div className="app-container">
-      <header className="header">
-        <div className="title">
+      <header >
+        <h1 className="title">
           tuenniWon
-        </div>
+        </h1>
         <div className="dealer score">
           Dealer: {gameState.dealerScore}
         </div>
         <div className="top score">
-          Top score: {gameState.highScore}
+          <div>Top score: {gameState.highScore}</div>
         </div>
       </header>
 
@@ -77,11 +77,15 @@ function App () {
 
       <footer>
         <div className="player score">
-          Player: {gameState.dealerScore}
+          Player: {gameState.playerScore}
         </div>
+        {gameState.error ? <div>
+          Oops... there was an error: {gameState.error.message}
+          <button onClick={() => dispatch({ type: 'error', payload: null })}>OK</button>
+        </div> : null}
         <div className="controls-panel">
           <button disabled={!gameState.endOfRound && gameState.cardsDealt} onClick={startRound}>Deal...</button>
-          <button disabled={gameState.endOfRound || !gameState.cardsDealt} onClick={() => {
+          <button disabled={gameState.endOfRound || !gameState.cardsDealt || gameState.playerAction === 'stand'} onClick={() => {
             console.log("HIT");
             deal('player', 1);
             dispatch({ type: 'take-turn', payload: 'hit' })
@@ -91,15 +95,27 @@ function App () {
             deal('dealer', 1);
             dispatch({ type: 'take-turn', payload: 'stand' });
           }}>STAND</button>
-          {gameState.error ? <div>
-            Oops... there was an error: {gameState.error.message}
-            <button onClick={() => dispatch({ type: 'error', payload: null })}>OK</button>
-          </div> : null}
           <button onClick={shuffleDeck}>Shuffle</button>
         </div>
       </footer>
 
-      {gameState.endOfRound ? <h1>{gameState.message}</h1> : null}
+      {gameState.message
+        ? <section className="message-modal">
+
+          <div className="message-container">
+            <button className="close-button" onClick={() => {
+              dispatch({ type: 'reset-hands' })
+              dispatch({ type: 'update-message', payload: '' })
+            }}>x</button>
+            <h1 className={
+              gameState.message.toLowerCase().includes('win')
+                ? 'green'
+                : gameState.message.toLowerCase().includes('lose')
+                  ? 'red'
+                  : null}>{gameState.message}</h1>
+          </div>
+        </section>
+        : null}
     </div>
   );
 }

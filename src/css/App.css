@@ -1,0 +1,103 @@
+.app-container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+header > * {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header .title {
+  flex: 1;
+  color: #FF7A00;
+  padding: 0 1em;
+}
+header .top.score {
+  flex: 1;
+  justify-content: flex-end;
+}
+header .top.score div {
+  display: flex;
+  align-items: center;
+  background-color: #DADCE0;
+  padding: 0 2em;
+  height: 100%;
+}
+
+main {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background: linear-gradient(135deg, #FEE3E1 0% 50%, #FFF8E6 50% 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer {
+  width: 100%;
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .player.score {
+  margin: 1rem;
+}
+footer .controls-panel button {
+  height: 3rem;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+}
+footer .controls-panel button:nth-of-type(1) {
+  border-radius: 20px 0 0 0;
+}
+footer .controls-panel button:nth-last-of-type(1) {
+  border-radius: 0 20px 0 0;
+}
+
+.message-modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.342);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-modal .message-container {
+  position: relative;
+  padding: 5rem;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-modal .message-container button {
+  margin: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+.message-modal .message-container h1 {
+  font-size: 3rem;
+}
+.message-modal .message-container h1.red {
+  color: #FB592D;
+}
+.message-modal .message-container h1.green {
+  color: #15A2B1;
+}

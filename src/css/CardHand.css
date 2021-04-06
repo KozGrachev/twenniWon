@@ -1,0 +1,19 @@
+.hand {
+  display: flex;
+  position: relative;
+}
+
+.card-container {
+  position: relative;
+  transition-property: border;
+  transition-duration: 200ms;
+  border: 3px solid transparent;
+  padding: 1rem;
+}
+.card-container img {
+  height: 30vh;
+}
+.card-container p {
+  position: absolute;
+  top: 0;
+}

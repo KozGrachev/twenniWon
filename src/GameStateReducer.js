@@ -28,6 +28,8 @@ export function reducer (state, action) {
       return { ...state, highScore: state.highScore + state.playerScore };
     case 'reset-high-score':
       return { ...state, highScore: 0 };
+    case 'reset-hands':
+      return { ...state, dealerHand: [], playerHand: []};
     case 'set-cards-dealt':
       return { ...state, cardsDealt: action.payload }
     case 'error':

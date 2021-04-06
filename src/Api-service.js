@@ -13,7 +13,7 @@ export async function drawCard (deckId, numCards) {
   const res = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=${numCards}`);
   if (res.ok) {
     return res.json();
-  } else throw new Error(`OMG THERE WAS AN ERROR D: ${res.status}`); //${res.status < 500 ? ''}
+  } else throw new Error(`Could not get data from API (Status: ${res.status})`); //${res.status < 500 ? ''}
 }
 
 export async function shuffleDeck (deckId) {

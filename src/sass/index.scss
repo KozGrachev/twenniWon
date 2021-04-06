@@ -1,0 +1,20 @@
+@use 'variables'as var;
+@use 'mixins'as mix;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat',
+  sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Comfortaa',
+  cursive;
+}
+
+button {
+  @include mix.input-style--button;
+  padding: 0.5rem;
+  
+}

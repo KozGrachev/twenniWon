@@ -1,0 +1,26 @@
+.hand {
+  display: flex;
+  position: relative;
+  // display: grid;
+  // grid-auto-columns: min-content;
+  // grid-template-rows: 1fr;
+}
+
+.card-container {
+  // width: 2rem;
+  // border: 3px solid purple;
+  position: relative;
+  transition-property: border;
+  transition-duration: 200ms;
+  border: 3px solid transparent;
+  padding: 1rem;
+
+  img{
+    height: 30vh;
+  }
+
+  p {
+    position: absolute;
+    top: 0;
+  }
+}
