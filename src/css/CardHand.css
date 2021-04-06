@@ -11,7 +11,7 @@
   padding: 1rem;
 }
 .card-container img {
-  height: 30vh;
+  width: 20vmin;
 }
 .card-container p {
   position: absolute;

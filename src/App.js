@@ -57,11 +57,11 @@ function App () {
   return (
     <div className="app-container">
       <header >
-        <h1 className="title">
-          twenniWon
-        </h1>
+        <div className="title">
+          <h1>twenniWon</h1>
+        </div>
         <div className="dealer score">
-          Dealer: {gameState.dealerScore}
+          <strong>Dealer: {gameState.dealerScore}</strong>
         </div>
         <div className="top score">
           <div>Top score: {gameState.highScore}</div>
@@ -77,7 +77,7 @@ function App () {
 
       <footer>
         <div className="player score">
-          Player: {gameState.playerScore}
+          <strong>Player: {gameState.playerScore}</strong>
         </div>
         {gameState.error ? <div>
           Oops... there was an error: {gameState.error.message}
