@@ -1,10 +1,8 @@
 export function reducer (state, action) {
   switch (action.type) {
     case 'deal-player':
-      console.log("CARD PAYLOAD ::: ", action.payload)
       return { ...state, playerHand: [...state.playerHand, ...action.payload] };
     case 'deal-dealer':
-      console.log("CARD PAYLOAD ::: ", action.payload)
       return { ...state, dealerHand: [...state.dealerHand, ...action.payload] };
     case 'count-player':
       return { ...state, playerScore: getHandTotal(state.playerHand) };

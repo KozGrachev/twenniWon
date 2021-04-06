@@ -58,7 +58,7 @@ function App () {
     <div className="app-container">
       <header >
         <h1 className="title">
-          tuenniWon
+          twenniWon
         </h1>
         <div className="dealer score">
           Dealer: {gameState.dealerScore}
