@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# twenniWon Testing Plan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+### Mocks
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+U1)	single card objects: number card, picture card, ace, invalid card
 
-### `npm test`
+U2)	an array of 2 cards:  a picture card and an ace
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I4)	  Player winning condition: `playerAction: 'stand'`, `dealerScore: 19`, `playerScore: 20`
 
-### `npm run build`
+I5, I11)	  Player losing condition 1: `playerAction: 'stand'`, `dealerScore: 20 `, `playerScore: 19`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I8)	  Player Bust condition: `playerAction: 'hit'`, `playerScore: 22`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I10)	Dealer Bust condition: `playerAction: 'stand'`, `dealerScore: 22`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Units
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. card values are extracted correctly
+2. hand total is counted correctly
+3. top score displays correct score
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Integrations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. HIT and STAND buttons are disabled when cards are dealt, 
+2. deal button is disabled after cards are dealt
+3. hit button is disabled after stand is clicked
+4. if player wins, player score is added to current streak
+5. if player loses, current streak gets reset to 0
+6. if current streak is higher than top score, top score gets updated 
+7. if the player score is 21, message is 'TWENTY ONE, you win'
+8. if dealer score is 21, message is 'TWENTY ONE, you lose'
+9. if player hits and goes over 21, message is 'BUST'
+10. if dealer goes over 21, message is 'YOU WIN'
+11. if player stands and dealer score is between 17 and 20,  message is 'YOU LOSE'
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### e2e
 
-### Analyzing the Bundle Size
+1. When app first loads, message 'Let's play' is shown
+2. After close (x) button on message is clicked the message stops displaying - message is set to empty string
+3. clicking DEAL at the start results in the player having 2 cards and the dealer, 1 card
+4. Clicking HIT gives the player one card 
+5. Clicking STAND gives dealer 1 card and disables Hit button
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
